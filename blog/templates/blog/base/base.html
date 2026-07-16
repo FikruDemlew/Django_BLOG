@@ -1,0 +1,32 @@
+{% load tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian Blog</title>
+    {% tailwind_css %}
+</head>
+
+<body class="min-h-screen bg-slate-950 text-slate-100">
+    <div class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+        <nav class="sticky top-0 z-10 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+                <a href="/" class="text-xl font-semibold tracking-[0.3em] text-white">MERIDIAN</a>
+                <div class="flex items-center gap-5 text-sm font-medium text-slate-300">
+                    <a href="/" class="transition hover:text-white">Home</a>
+                    <a href="/" class="transition hover:text-white">Articles</a>
+                    <a href="/" class="transition hover:text-white">Topics</a>
+                    <a href="/" class="transition hover:text-white">About</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

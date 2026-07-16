@@ -1,0 +1,93 @@
+{% extends "blog/base/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<section class="space-y-8">
+    <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-2xl shadow-slate-950/30 backdrop-blur-xl">
+        <div class="grid gap-8 p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-12">
+            <div class="space-y-5">
+                <span class="inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-sm font-medium text-cyan-200">
+                    Fresh ideas for modern readers
+                </span>
+                <h1 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                    Discover stories that spark curiosity.
+                </h1>
+                <p class="max-w-2xl text-lg leading-8 text-slate-300">
+                    Explore thoughtful articles, practical insights, and inspiring perspectives from around the world.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="/" class="rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
+                        Start reading
+                    </a>
+                    <a href="/" class="rounded-full border border-white/20 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10">
+                        Explore topics
+                    </a>
+                </div>
+            </div>
+
+            <div class="rounded-[1.5rem] border border-white/10 bg-gradient-to-bl from-cyan-400/20 to-violet-500/20 p-6">
+                <div class="space-y-4">
+                    <div class="rounded-2xl bg-slate-950/60 p-4">
+                        <p class="text-sm text-slate-400">Weekly highlights</p>
+                        <p class="mt-2 text-3xl font-semibold text-white">12 new posts</p>
+                    </div>
+                    <div class="grid gap-3 sm:grid-cols-2">
+                        <div class="rounded-2xl bg-white/10 p-4">
+                            <p class="text-sm text-slate-400">Readers</p>
+                            <p class="mt-2 text-2xl font-semibold text-white">3.4k</p>
+                        </div>
+                        <div class="rounded-2xl bg-white/10 p-4">
+                            <p class="text-sm text-slate-400">Topics</p>
+                            <p class="mt-2 text-2xl font-semibold text-white">24</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between">
+        <div>
+            <h2 class="text-2xl font-semibold text-white">Latest articles</h2>
+            <p class="text-sm text-slate-400">A curated collection of fresh stories.</p>
+        </div>
+        <a href="/" class="text-sm font-medium text-cyan-300 transition hover:text-cyan-200">View all</a>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-2">
+        {% for blog in blogs %}
+        <article class="group overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/10 shadow-lg shadow-slate-950/20 backdrop-blur transition duration-300 hover:-translate-y-1 hover:bg-white/15">
+            <div class="relative h-56 overflow-hidden">
+                {% if blog.image %}
+                    <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                {% else %}
+                    <div class="flex h-full items-center justify-center bg-gradient-to-br from-slate-700 to-slate-900 text-lg font-semibold text-slate-200">
+                        {{ blog.title }}
+                    </div>
+                {% endif %}
+                <div class="absolute left-4 top-4 rounded-full bg-slate-950/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-slate-100">
+                    Featured
+                </div>
+            </div>
+
+            <div class="space-y-4 p-6">
+                <div class="flex items-center justify-between text-sm text-slate-400">
+                    <span>{{ blog.created_at|date:"M d, Y" }}</span>
+                    <span class="rounded-full bg-cyan-400/10 px-2.5 py-1 text-cyan-200">{{ blog.number_of_views }} views</span>
+                </div>
+                <h3 class="text-xl font-semibold text-white">{{ blog.title }}</h3>
+                <p class="text-slate-300">{{ blog.content|truncatewords:30 }}</p>
+                <a href="{% url 'blog_detail' blog.id %}" class="inline-flex items-center text-sm font-semibold text-cyan-300 transition hover:text-cyan-200">
+                    Read article →
+                </a>
+            </div>
+        </article>
+        {% empty %}
+        <div class="rounded-[1.5rem] border border-dashed border-white/20 bg-white/5 p-8 text-center text-slate-300 lg:col-span-2">
+            No articles yet. Check back soon.
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

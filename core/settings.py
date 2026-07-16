@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tailwind',
+    'theme',
 ]
+TAILWIND_APP_NAME = "theme"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -111,8 +114,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_URL = '/files/'
