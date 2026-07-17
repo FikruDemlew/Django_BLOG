@@ -1,0 +1,44 @@
+{% extends "blog/base/base.html" %}
+
+{% block content %}
+<article class="mx-auto max-w-4xl">
+    <div class="mb-6 text-cyan-300">
+        <a href="{% url 'blog_index' %}">Back to articles</a>
+    </div>
+
+    <div class="rounded-[2rem] border border-white/10 bg-slate-900/70 p-8 shadow">
+        <h2 class="mb-6 text-2xl font-semibold text-white">Create article</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="space-y-4">
+                <div>
+                    <label class="mb-1 block text-sm text-slate-300">Title</label>
+                    {{ form.title }}
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm text-slate-300">Content</label>
+                    {{ form.content }}
+                </div>
+                <div>
+                    <label class="mb-1 block text-sm text-slate-300">Image</label>
+                    {{ form.image }}
+                </div>
+                <div class="flex items-center gap-2">
+                    {{ form.isPublished }}
+                    <label class="text-sm text-slate-300">Published</label>
+                </div>
+            </div>
+
+            <div class="mt-6 flex gap-3">
+                <button type="submit" class="rounded-full bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950">
+                    Save
+                </button>
+                <a href="{% url 'blog_index' %}" class="rounded-full bg-slate-700 px-4 py-2 text-sm font-semibold text-white">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</article>
+{% endblock %}
