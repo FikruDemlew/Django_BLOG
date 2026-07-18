@@ -12,11 +12,11 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="space-y-4">
-                <div>
-                    <label class="mb-1 block text-sm text-slate-300">Title</label>
+                <div class="w-auto">
+                    <label class="w-100 mb-1 block text-sm text-slate-300">Title</label>
                     {{ form.title }}
                 </div>
-                <div>
+                <div class="">
                     <label class="mb-1 block text-sm text-slate-300">Content</label>
                     {{ form.content }}
                 </div>

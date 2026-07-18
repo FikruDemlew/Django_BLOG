@@ -12,17 +12,18 @@
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="space-y-4">
-                <div>
-                    <label class="mb-1 block text-sm text-slate-300">Title</label>
+                <div class="border border-white/10">
+                    <label class="mb-1 block text-sm text-slate-300 ">Title</label>
                     {{ form.title }}
                 </div>
-                <div>
+                <div class="border border-white/5">
                     <label class="mb-1 block text-sm text-slate-300">Content</label>
                     {{ form.content }}
                 </div>
                 <div>
                     <label class="mb-1 block text-sm text-slate-300">Image</label>
-                    {{ form.image }}
+                    <div class="pl-2 bg-white text-black w-50 rounded-full">{{ form.image }}</div>
+                    
                 </div>
                 <div class="flex items-center gap-2">
                     {{ form.isPublished }}
