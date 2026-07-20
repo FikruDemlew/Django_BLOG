@@ -1,0 +1,31 @@
+{% extends "blog/base/base.html" %}
+
+{% block content %}
+<section class="space-y-8">
+    <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-8 shadow-2xl shadow-slate-950/30 backdrop-blur-xl sm:p-10 lg:p-12">
+        <div class="max-w-3xl space-y-5">
+            <span class="inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-sm font-medium text-cyan-200">
+                About Meridian
+            </span>
+            <h1 class="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+                We help great ideas find their audience.
+            </h1>
+            <p class="text-lg leading-8 text-slate-300">
+                Meridian is a modern blog platform focused on sharing thoughtful stories, practical insights, and creative perspectives.
+                Our goal is to make reading and publishing feel simple, beautiful, and inspiring.
+            </p>
+        </div>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+        <div class="rounded-[1.5rem] border border-white/10 bg-white/10 p-8 backdrop-blur">
+            <h2 class="text-xl font-semibold text-white">What we offer</h2>
+            <p class="mt-3 text-slate-300">A welcoming space for writers to publish articles and readers to discover meaningful content.</p>
+        </div>
+        <div class="rounded-[1.5rem] border border-white/10 bg-white/10 p-8 backdrop-blur">
+            <h2 class="text-xl font-semibold text-white">Why it matters</h2>
+            <p class="mt-3 text-slate-300">We believe that quality content can connect people, spark curiosity, and encourage thoughtful conversation.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

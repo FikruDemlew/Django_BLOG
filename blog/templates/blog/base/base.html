@@ -10,23 +10,42 @@
 </head>
 
 <body class="min-h-screen bg-slate-950 text-slate-100">
-    <div class="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+    <div class="flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
         <nav class="sticky top-0 z-10 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                <a href="/" class="text-xl font-semibold tracking-[0.3em] text-white">MERIDIAN</a>
+                <a href="{% url 'blog_index' %}" class="text-xl font-semibold tracking-[0.3em] text-white">MERIDIAN</a>
                 <div class="flex items-center gap-5 text-sm font-medium text-slate-300">
-                    <a href="/" class="transition hover:text-white">Home</a>
-                    <a href="/" class="transition hover:text-white">Articles</a>
-                    <a href="/" class="transition hover:text-white">Topics</a>
-                    <a href="/" class="transition hover:text-white">About</a>
+                    <a href="{% url 'blog_index' %}" class="transition hover:text-white">Home</a>
+                    <a href="{% url 'blog_index' %}" class="transition hover:text-white">Articles</a>
+                    <a href="{% url 'about' %}" class="transition hover:text-white">About</a>
                 </div>
             </div>
         </nav>
 
-        <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
             {% block content %}
             {% endblock %}
         </main>
+
+        <footer class="border-t border-white/10 bg-slate-950/95">
+            <div class="mx-auto flex max-w-7xl flex-col gap-8 px-4 py-10 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+                <div class="max-w-lg">
+                    <p class="text-sm font-semibold uppercase tracking-[0.35em] text-slate-400">Meridian Journal</p>
+                    <p class="mt-3 text-2xl font-semibold tracking-[0.2em] text-white">MERIDIAN</p>
+                    <p class="mt-3 text-sm leading-7 text-slate-400">
+                        A timeless space for thoughtful stories, refined ideas, and lasting conversations.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3 text-sm text-slate-400 sm:flex-row sm:items-center sm:gap-6">
+                    <a href="{% url 'blog_index' %}" class="transition hover:text-white">Home</a>
+                    <a href="{% url 'about' %}" class="transition hover:text-white">About</a>
+                    <a href="{% url 'blog_create' %}" class="transition hover:text-white">Create Blog</a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 px-4 py-4 text-center text-xs uppercase tracking-[0.3em] text-slate-500 sm:px-6 lg:px-8">
+                © 2026 Meridian. All rights reserved.
+            </div>
+        </footer>
     </div>
 </body>
 </html>
